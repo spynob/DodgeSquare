@@ -43,7 +43,7 @@ public abstract class GameObject {
     }
 
     public float gety(){
-        return this.x;
+        return this.y;
     }
 
     public ID getid(){

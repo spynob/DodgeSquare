@@ -28,6 +28,16 @@ public class KeyInput extends KeyAdapter{
 
             }
 
+            if (tempObject.getid() == ID.Player){
+                //key events for player
+
+                if (key == KeyEvent.VK_W) {tempObject.setVely((-1)*speed); keyDown[0] = true;}
+                if (key == KeyEvent.VK_S) {tempObject.setVely(speed); keyDown[1] = true;}
+                if (key == KeyEvent.VK_A) {tempObject.setVelx((-1)*speed); keyDown[2] = true;}
+                if (key == KeyEvent.VK_D) {tempObject.setVelx(speed); keyDown[3] = true;}
+
+            }
+
             if (tempObject.getid() == ID.Pacman){
                 //key events for pacman
 
