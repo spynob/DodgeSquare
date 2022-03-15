@@ -10,3 +10,8 @@ The game consists in a little cube controlled by a player that has to dodge vari
 
 There is a life bar that decreases with collisions
 I plan to implement a menu and different windows and more levels
+
+How to play:
+  awsd - keys to move left, up, down or right
+  c - change color, because why not
+  dogde the enemies :)
