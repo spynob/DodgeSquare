@@ -32,7 +32,7 @@ public class FastEnemy extends GameObject {
             this.setVely((int) ((-1)*vely));
         }
 
-        handler.addObject(new BasicTrail(x, y, ID.Trail, availableColors[couleur],handler, 0.03f));
+        handler.addObject(new BasicTrail(x, y, ID.Trail, availableColors[couleur],handler, 0.03f, 16));
         x += velx;
         y += vely;
 

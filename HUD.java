@@ -13,7 +13,7 @@ public class HUD {
         HEALTH = (int)Game.clamp(HEALTH, 0, 100);
         greenValue = (int)Game.clamp(greenValue, 0, 255);
         greenValue = HEALTH*2;
-        if (HEALTH == 0) System.exit(1);
+        //if (HEALTH == 0) System.exit(1);
     }
 
     public void render(Graphics g){

@@ -16,24 +16,42 @@ public class Game extends Canvas implements Runnable {
     public static int gameSpeed = 3;
     private HUD hud;
     private Spawn spawner;
+    private Menu menu;
 
+    public enum STATE {
+        Help,
+      Menu,
+      Game
+    };
+
+    public STATE gameState  = STATE.Menu;
 
     public Game(){
         handler = new Handler();
+        menu = new Menu(this, handler);
+        this.addMouseListener(menu);
         hud = new HUD();
         spawner = new Spawn(handler, hud);
-        this.addKeyListener(new KeyInput(handler));
+        this.addKeyListener(new KeyInput(handler, this));
         new Window(WIDTH, HEIGHT, "Game", this);
 
         r = new Random();
         //for (int i = 0; i < 3; i++){
         //    handler.addObject(new Player(0, 0, ID.Player));
         //}
-        handler.addObject(new Player(400, 100, ID.Player, handler));
-        //handler.addObject(new Pacman(0, 200, ID.Pacman));
-        handler.addObject(new Enemy(320, 320, ID.Enemy, handler));
+        if (gameState == STATE.Game) {
+            //handler.addObject(new Player(400, 100, ID.Player, handler));
+            //handler.addObject(new Pacman(0, 200, ID.Pacman));
+            //handler.addObject(new Boss(300, 0, ID.Boss, handler));
+        }
 
         this.requestFocusInWindow();
+    }
+
+    public void close(){
+        while (handler.object.size() != 0) {
+            handler.removeObject(handler.object.getFirst());
+        }
     }
 
     public synchronized void start(){
@@ -83,9 +101,10 @@ public class Game extends Canvas implements Runnable {
     private void tick(){
         //System.out.println(gameSpeed);
         handler.tick();
-        hud.tick();
-        spawner.tick();
-
+        if (gameState == STATE.Game) {
+            hud.tick();
+            spawner.tick();
+        } else if (gameState == STATE.Menu || gameState == STATE.Help) menu.tick();
     }
 
     private void render(){
@@ -96,13 +115,13 @@ public class Game extends Canvas implements Runnable {
         }
 
         Graphics g = bs.getDrawGraphics();
-
         g.setColor(Color.black);
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
         handler.render(g);
-        hud.render(g);
-
+        if (gameState == STATE.Game) {
+            hud.render(g);
+        } else if(gameState == STATE.Menu || gameState == STATE.Help) menu.render(g);
         g.dispose();
         bs.show();
     }

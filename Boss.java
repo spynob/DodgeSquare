@@ -1,20 +1,21 @@
 import java.awt.*;
-import java.util.List;
 import java.util.Random;
 
-public class Enemy extends GameObject {
-
+public class Boss extends GameObject{
     private Handler handler;
+    private int timer = 100;
+    private int timer2 = 50;
 
-    public Enemy(float x, float y, ID id, Handler handler){
+    public Boss(float x, float y, ID id, Handler handler){
         super(x, y, id);
         this.handler = handler;
         Random r = new Random();
+        this.dim = 64;
 
         //velx = r.nextInt(5);
         //vely = r.nextInt(5);
-        vely = 3.0f;
-        velx = 3.0f;
+        vely = 1.0f;
+        velx = 0f;
 
         availableColors = new Color[]{Color.cyan, Color.white, Color.red, Color.green};
         couleur = 2;
@@ -26,6 +27,10 @@ public class Enemy extends GameObject {
 
     @Override
     public void tick() {
+        if (timer == 0) vely = 0;
+        else timer--;
+        if (timer == 0) timer2--;
+        if (timer2 == 0) velx = 2;
         if ((x + velx < 0) || (x + velx >= (Game.WIDTH - 40))) {
             this.setVelx((int) ((-1)*velx));
         }
@@ -33,7 +38,7 @@ public class Enemy extends GameObject {
             this.setVely((int) ((-1)*vely));
         }
 
-        handler.addObject(new BasicTrail(x, y, ID.Trail, availableColors[couleur], handler, 0.03f, 16));
+        //handler.addObject(new BasicTrail(x, y, ID.Trail, availableColors[couleur], handler, 0.03f, dim));
         x += velx;
         y += vely;
 
@@ -43,10 +48,10 @@ public class Enemy extends GameObject {
     public void render(Graphics g) {
 
         g.setColor(availableColors[couleur]);
-        g.fillRect((int)x,(int) y, 16, 16);
+        g.fillRect((int)x,(int) y, dim, dim);
     }
 
     public Rectangle getBounds(){
-        return new Rectangle((int)x,(int) y, 16, 16);
+        return new Rectangle((int)x,(int) y, 64, 64);
     }
 }

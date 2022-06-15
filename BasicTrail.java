@@ -7,11 +7,12 @@ public class BasicTrail extends GameObject{
     private Color color;
     private float life;
 
-    public BasicTrail(float x, float y, ID id,Color color, Handler handler, float life){
+    public BasicTrail(float x, float y, ID id,Color color, Handler handler, float life, int dim){
         super(x, y, id);
         this.handler = handler;
         this.color = color;
         this.life = life;
+        this.dim = dim;
 
     }
 
@@ -25,7 +26,7 @@ public class BasicTrail extends GameObject{
         Graphics2D g2d = (Graphics2D) g;
         g2d.setComposite(makeTransparent(alpha));
         g.setColor(color);
-        g.fillRect((int)x,(int) y, 16, 16);
+        g.fillRect((int)x,(int) y, getDim(), getDim());
         g2d.setComposite(makeTransparent(1));
     }
 

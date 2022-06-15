@@ -5,6 +5,7 @@ public abstract class GameObject {
     protected ID id;
     protected float velx, vely;
     protected int couleur;
+    protected int dim;
     public Color[] availableColors;
 
     public GameObject(float x, float y, ID id){
@@ -65,5 +66,7 @@ public abstract class GameObject {
     public float getVely(){
         return this.vely;
     }
+    public int getDim() {return dim;}
+    public void setDim(int dim) {this.dim = dim;}
 
 }

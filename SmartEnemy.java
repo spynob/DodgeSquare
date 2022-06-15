@@ -10,7 +10,7 @@ public class SmartEnemy extends GameObject {
     public SmartEnemy(int x, int y, ID id, Handler handler){
         super(x, y, id);
         this.handler = handler;
-        this.SPEED = 3;
+        this.SPEED = 2;
 
         for(int i =0; i < handler.object.size(); i++){
             if (handler.object.get(i).getid() == ID.Player) player = handler.object.get(i);
@@ -39,7 +39,7 @@ public class SmartEnemy extends GameObject {
         x += velx;
         y += vely;
 
-        handler.addObject(new BasicTrail(x, y, ID.Trail, availableColors[couleur], handler, 0.02f));
+        handler.addObject(new BasicTrail(x, y, ID.Trail, availableColors[couleur], handler, 0.02f, 16));
     }
 
     @Override
