@@ -23,6 +23,7 @@ public class Menu extends MouseAdapter {
             if (mouseOver(mx, my, 220, 100, 200, 64)) {
                 game.gameState = Game.STATE.Game;
                 handler.addObject(new Player(400, 100, ID.Player, handler));
+                handler.clearEnemies();
                 handler.addObject(new Enemy(300, 0, ID.Enemy, handler));
             }
 
@@ -65,11 +66,21 @@ public class Menu extends MouseAdapter {
         }
         else if (game.gameState == Game.STATE.Help) {
             Font fnt = new Font("arial", 1, 50);
+            Font fnt2 = new Font("arial", 1, 30);
+            Font fnt3 = new Font("arial", 1, 18);
+
             g.setFont(fnt);
             g.setColor(Color.white);
             g.drawString("HELP", 247, 70);
+            g.setFont(fnt2);
             g.drawRect(220, 300, 200, 64);
-            g.drawString("BACK", 250, 345);
+            g.drawString("BACK", 280, 345);
+            g.setFont(fnt3);
+            g.drawString("Use WASD to move your character and dodge the enemies.", 70, 120);
+            g.drawString("The Green bar represents your health.", 70, 150);
+            g.drawString("Press C to change color.", 70, 190);
+            g.drawString("Press M to return to Menu.", 70, 220);
+            g.drawString("Press ESC to quit.", 70, 250);
         }
     }
 }

@@ -1,4 +1,5 @@
 public enum ID {
+    MenuParticle,
     Player(),
     Pacman(),
     Trail(),

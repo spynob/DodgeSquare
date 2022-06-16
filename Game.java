@@ -24,7 +24,7 @@ public class Game extends Canvas implements Runnable {
       Game
     };
 
-    public STATE gameState  = STATE.Menu;
+    public STATE gameState  = STATE.Help;
 
     public Game(){
         handler = new Handler();
@@ -43,6 +43,10 @@ public class Game extends Canvas implements Runnable {
             //handler.addObject(new Player(400, 100, ID.Player, handler));
             //handler.addObject(new Pacman(0, 200, ID.Pacman));
             //handler.addObject(new Boss(300, 0, ID.Boss, handler));
+        } else {
+            for (int i=0; i<10; i++){
+                handler.addObject(new MenuParticle(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.MenuParticle, handler));
+            }
         }
 
         this.requestFocusInWindow();
