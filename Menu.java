@@ -21,9 +21,9 @@ public class Menu extends MouseAdapter {
         //PLAY Button
         if (game.gameState == Game.STATE.Menu) {
             if (mouseOver(mx, my, 220, 100, 200, 64)) {
+                handler.clearMenu();
                 game.gameState = Game.STATE.Game;
-                handler.addObject(new Player(400, 100, ID.Player, handler));
-                handler.clearEnemies();
+                handler.addObject(new Player(310, 200, ID.Player, handler));
                 handler.addObject(new Enemy(300, 0, ID.Enemy, handler));
             }
 
@@ -34,12 +34,12 @@ public class Menu extends MouseAdapter {
             if (mouseOver(mx, my, 220, 300, 200, 64)) System.exit(1);
         }
         else if (game.gameState == Game.STATE.Help) {
+            //Back button
             if (mouseOver(mx, my, 220, 300, 200, 64)) game.gameState = Game.STATE.Menu;
         }
 
     }
     public void tick (){
-
     }
 
     private boolean mouseOver(int mx, int my, int x, int y, int width, int height){

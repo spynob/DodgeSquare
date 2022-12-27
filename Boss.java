@@ -5,6 +5,7 @@ public class Boss extends GameObject{
     private Handler handler;
     private int timer = 100;
     private int timer2 = 50;
+    private int timer3 = 20;
 
     public Boss(float x, float y, ID id, Handler handler){
         super(x, y, id);
@@ -30,17 +31,24 @@ public class Boss extends GameObject{
         if (timer == 0) vely = 0;
         else timer--;
         if (timer == 0) timer2--;
-        if (timer2 == 0) velx = 2;
-        if ((x + velx < 0) || (x + velx >= (Game.WIDTH - 40))) {
+        if (timer2 == 0) {
+            timer--;
+            if (velx == 0) velx = 2;
+            timer3--;
+            if (timer3 == 0) {
+                handler.addObject(new BossBullet(x + 48, y + 48, ID.Bullet, handler));
+                timer3 = 20;
+            }
+        }
+        if ((x + velx < 0) || (x + velx >= (Game.WIDTH - 80))) {
             this.setVelx((int) ((-1)*velx));
         }
-        else if ((y + vely < 0) || (y + vely > (Game.HEIGHT-60))) {
-            this.setVely((int) ((-1)*vely));
-        }
+
 
         //handler.addObject(new BasicTrail(x, y, ID.Trail, availableColors[couleur], handler, 0.03f, dim));
         x += velx;
         y += vely;
+
 
     }
 

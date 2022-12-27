@@ -29,6 +29,17 @@ public class Handler {
     }
 
     public void clearEnemies(){
-        for (int i=0; i<j=)
+        for (int i=object.size()-1; i>=0; i--){
+            if ((object.get(i).getid() == ID.Boss) || object.get(i).getid() == ID.Trail|| (object.get(i).getid() == ID.Enemy) || (object.get(i).getid() == ID.FastEnemy) || (object.get(i).getid() == ID.SmartEnemy)){
+                object.remove(i);
+            }
+        }
+    }
+    public void clearMenu(){
+        for (int i= object.size()-1; i>=0; i--){
+            if (object.get(i).getid() == ID.MenuParticle || object.get(i).getid() == ID.Trail){
+                object.remove(i);
+            }
+        }
     }
 }
