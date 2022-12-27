@@ -36,7 +36,7 @@ public class Boss extends GameObject{
             if (velx == 0) velx = 2;
             timer3--;
             if (timer3 == 0) {
-                handler.addObject(new BossBullet(x + 48, y + 48, ID.Bullet, handler));
+                handler.addObject(new BossBullet(x + 48, y + 48, ID.BossBullet, handler));
                 timer3 = 20;
             }
         }

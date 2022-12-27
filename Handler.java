@@ -6,17 +6,17 @@ public class Handler {
 
     public void tick(){
         for (int i = 0; i < object.size(); i++){
-            GameObject tempObject = object.get(i);
-
-            tempObject.tick();
+            try{
+                object.get(i).tick();
+            } catch(NullPointerException e){}
         }
     }
 
     public void render(Graphics g){
         for(int i = 0; i < object.size(); i++){
-            GameObject tempObject = object.get(i);
-
-            tempObject.render(g);
+            try{
+                object.get(i).render(g);
+            } catch(NullPointerException e){}
         }
     }
 
@@ -37,9 +37,11 @@ public class Handler {
     }
     public void clearMenu(){
         for (int i= object.size()-1; i>=0; i--){
-            if (object.get(i).getid() == ID.MenuParticle || object.get(i).getid() == ID.Trail){
-                object.remove(i);
-            }
+            try {
+                if (object.get(i).getid() == ID.MenuParticle || object.get(i).getid() == ID.Trail){
+                    object.remove(i);
+                }
+            }catch (NullPointerException e){}
         }
     }
 }

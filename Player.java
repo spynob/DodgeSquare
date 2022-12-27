@@ -35,12 +35,17 @@ public class Player extends GameObject {
     }
 
     private void collision(){
-        for (int i = 0; i < handler.object.size(); i++){
+        for (int i =0 ; i < handler.object.size(); i++){
             GameObject tempObject = handler.object.get(i);
 
-            if(tempObject.getid() == ID.Enemy || tempObject.getid() == ID.FastEnemy || tempObject.getid() == ID.SmartEnemy || tempObject.getid() == ID.Boss){
+            if(tempObject.getid() == ID.Enemy || tempObject.getid() == ID.BossBullet || tempObject.getid() == ID.FastEnemy || tempObject.getid() == ID.SmartEnemy || tempObject.getid() == ID.Boss){
                 if(getBounds().intersects(tempObject.getBounds())) {
                     HUD.HEALTH -= 2;
+                    if (tempObject.getid() == ID.BossBullet){
+                        handler.object.remove(i);
+                        HUD.HEALTH-= 5;
+                        i--;
+                    }
                 }
             }
         }

@@ -13,6 +13,10 @@ public class Spawn {
         this.hud = hud;
     }
 
+    public void setScoreKeep(int scoreKeep) {
+        this.scoreKeep = scoreKeep;
+    }
+
     public void tick(){
         scoreKeep ++;
         if(scoreKeep >= 500){
@@ -20,8 +24,8 @@ public class Spawn {
             hud.setLevel(hud.getLevel() + 1);
 
             if (hud.getLevel() == 2){
-                //handler.addObject(new Boss(240, 0,ID.Boss, handler));
-                handler.addObject(new Enemy(r.nextInt(Game.WIDTH - 100), r.nextInt(Game.HEIGHT- 100),ID.Enemy, handler));
+                handler.addObject(new Boss(240, 0,ID.Boss, handler));
+                //handler.addObject(new Enemy(r.nextInt(Game.WIDTH - 100), r.nextInt(Game.HEIGHT- 100),ID.Enemy, handler));
             }
 
             else if (hud.getLevel() == 3){

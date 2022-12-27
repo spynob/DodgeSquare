@@ -7,5 +7,5 @@ public enum ID {
     SmartEnemy,
     Enemy(),
     Boss(),
-    Bullet
+    BossBullet()
 }

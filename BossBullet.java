@@ -26,7 +26,7 @@ public class BossBullet extends GameObject {
 
     @Override
     public void tick() {
-        handler.addObject(new BasicTrail(x, y, ID.Trail, availableColors[couleur], handler, 0.03f, 16));
+        handler.addObject(new BasicTrail(x, y, ID.Trail, availableColors[couleur], handler, 0.1f, 16));
         if ((x + velx < 0) || (x + velx >= (Game.WIDTH - 40))) {
             this.setVelx((int) ((-1)*velx));
         }
