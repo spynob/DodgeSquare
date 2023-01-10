@@ -4,9 +4,9 @@ The project was heavily inspired from a youtube series in order to learn the bas
 during the semester and I plan on returning to it this summer.
 
 The game consists in a little cube controlled by a player that has to dodge various enemy types (the little cubes)
-  red: normal enemy
-  blue: fast enemy
-  green: "hunter" enemy
+ red: normal enemy
+ blue: fast enemy
+ green: "hunter" enemy
 
 There is a life bar that decreases with collisions
 I plan to implement a menu and different windows and more levels
@@ -14,4 +14,4 @@ I plan to implement a menu and different windows and more levels
 How to play:
   awsd - keys to move left, up, down or right
   c - change color, because why not
-  dogde the enemies :)
+ dogde the enemies :)
