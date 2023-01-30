@@ -14,4 +14,7 @@ I plan to implement a menu and different windows and more levels
 How to play:
   awsd - keys to move left, up, down or right
   c - change color, because why not
- dogde the enemies :)
+
+dogde the enemies :)
+
+I still need to clean and document this code. It will be done someday(:
