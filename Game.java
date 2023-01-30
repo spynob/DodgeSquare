@@ -1,6 +1,6 @@
 // This java project was done by pretty much just copying the series
 // Java ProgrammingL Let's Build a Game
-// by RealTutsGML on Youtube.
+// by RealTutsGML on YouTube.
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -23,9 +23,9 @@ public class Game extends Canvas implements Runnable {
         Menu,
         Game,
         End
-    };
+    }
 
-    public STATE gameState  = STATE.End;
+    public STATE gameState  = STATE.Menu;
 
     public Game(){
         handler = new Handler();
