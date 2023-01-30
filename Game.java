@@ -1,4 +1,4 @@
-// This java project was done by pretty much just copying the series
+// This java project was done watching the series
 // Java ProgrammingL Let's Build a Game
 // by RealTutsGML on YouTube.
 
